@@ -21,11 +21,11 @@ class Person {
     getAge(){
         return this.#age;
     }
-    setWeight(weight){
-        if (weight < 0){
-            console.warn("Weight cannot be negative");
-        }
-        else{
+    setWeight(weight) {
+        if (weight <= 0) {
+            console.warn("Invalid weight. Defaulting to 0.");
+            this.#weight = 0;
+        } else {
             this.#weight = weight;
         }
     }
@@ -33,13 +33,13 @@ class Person {
     getWeight(){
         return this.#weight
     }
-    setHeight(height){
-    if (height < 0){
-        console.warn("Height cannot be negative");
-    }
-    else{
-        this.#height = height;
-    }
+    setHeight(height) {
+        if (height <= 0) {
+            console.warn("Invalid height. Defaulting to 0.");
+            this.#height = 0;
+        } else {
+            this.#height = height;
+        }
     }
     getHeight(){
         return this.#height
@@ -53,8 +53,9 @@ class Person {
     isAdult(){
         return this.#age >= 18;
     }
-    getBMI(){
-        return Number((this.#weight / (this.#height * this.#height)).toFixed(2))
+    getBMI() {
+            if (this.#height <= 0 || this.#weight <= 0) return 0;
+            return Number((this.#weight / (this.#height * this.#height)).toFixed(2));
     }
 }
 
