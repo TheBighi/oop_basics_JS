@@ -6,8 +6,8 @@ class Person {
     constructor(name,age, weight, height){
         this.#name = name;
         this.#age = age;
-        this.#weight = weight
-        this.#height = height
+        this.setWeight(weight)
+        this.setHeight(height)
     }
     setName(name){
         this.#name = name;
@@ -23,22 +23,23 @@ class Person {
     }
     setWeight(weight){
         if (weight < 0){
-            this.#weight = weight
-        }
-        else{
             console.warn("Weight cannot be negative");
         }
+        else{
+            this.#weight = weight;
+        }
     }
+
     getWeight(){
         return this.#weight
     }
     setHeight(height){
-        if (height < 0){
-            this.#height = height
-        }
-        else{
-            console.warn("Height cannot be negative");
-        }
+    if (height < 0){
+        console.warn("Height cannot be negative");
+    }
+    else{
+        this.#height = height;
+    }
     }
     getHeight(){
         return this.#height
