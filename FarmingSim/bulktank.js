@@ -10,7 +10,11 @@ class BulkTank {
         return this.#capacity
     }
     GetVolume() {
-        return this.#volume
+        return Math.ceil(this.#volume * 10) / 10
+    }
+    print(){
+        console.log("Capacity: " + Math.ceil(this.#capacity * 10) / 10)
+        console.log("Volume: " + Math.ceil(this.#volume * 10) / 10)
     }
     howMuchFreeSpace() {
         return this.#capacity - this.#volume
