@@ -1,3 +1,5 @@
+
+
 class Cow {
     #capacity = 2000
     #amount = 0
@@ -21,6 +23,20 @@ class Cow {
         console.log("Name: " + this.#name)
         console.log("Capacity: " + this.#capacity)
         console.log("Amount: " + this.#amount)
+    }
+    milk() {
+        this.#amount -= 10;
+
+        if (this.#amount < 0) {
+            this.#amount = 0
+        }
+    }
+    liveHour() {
+        this.#amount += 50
+
+        if (this.#amount > this.#capacity) {
+            this.#amount = this.#capacity;
+        }
     }
 }
 

@@ -21,7 +21,7 @@ class BulkTank {
     }
     addToTank(amount) {
         if (this.#volume + amount > this.#capacity) {
-            console.log("Tank cannot fit anymore")
+            this.#volume = 0
         }
         else{
             this.#volume += amount;
@@ -29,7 +29,7 @@ class BulkTank {
     }
     getFromTank(amount) {
         if (this.#volume - amount < 0) {
-            console.log("Cannot take this amount from tank because not enough")
+            this.#volume = this.#capacity
         }
         else{
             this.#volume -= amount
