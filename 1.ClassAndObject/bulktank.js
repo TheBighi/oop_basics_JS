@@ -17,7 +17,7 @@ class BulkTank{
             console.log("Tank cannot fit anymore")
         }
         else{
-            this.volume + amount
+            this.volume += amount;
         }
     }
     getFromTank(amount){
@@ -25,7 +25,9 @@ class BulkTank{
             console.log("Cannot take this amount from tank because not enough")
         }
         else{
-            this.volume - amount
+            this.volume -= amount
         }
     }
 }
+
+module.exports = BulkTank;
