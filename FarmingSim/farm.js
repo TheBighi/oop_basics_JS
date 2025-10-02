@@ -1,23 +1,18 @@
 const BulkTank  = require('./bulktank.js');
 const Cow  = require('./cow.js');
+const MilkingRobot  = require('./milkingrobot.js');
 
-const tank1 = new BulkTank()  // 2000
-
-console.log(tank1.GetCapacity())
-tank1.addToTank(7)
-tank1.getFromTank(5)
-tank1.print()
-console.log("-------COW STARTS-------")
-const cow = new Cow("Awesome cow");
+const cow = new Cow();
 cow.print();
 
-/** @type {Alive} */ (cow).liveHour();
+cow.liveHour();
 cow.liveHour();
 cow.liveHour();
 cow.liveHour();
 cow.print();
 
-/** @type {Milkable} */ (cow).milk();
+cow.milk();
+cow.print();
 console.log("");
 
 const cow1 = new Cow("Ammu");

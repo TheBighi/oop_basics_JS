@@ -1,42 +1,31 @@
+const Milkable = require("./milkable")
 
-
-class Cow {
-    #capacity = 200
+class Cow extends Milkable{
+    #name = ''
+    #capacity = 0
     #amount = 0
-    #name = ""
-    
-    constructor(name) {
-        this.#name = name
-        this.#amount = 20
-        this.#capacity = 200
-    }
-    GetCapacity() {
-        return Math.ceil(this.#capacity * 10) / 10
-    }
-    GetAmount() {
-        return Math.ceil(this.#amount * 10) / 10
-    }
-    GetName(){
-        return this.#name
-    }
-    print() {
-        console.log("Name: " + this.#name)
-        console.log("Capacity: " + this.#capacity)
-        console.log("Amount: " + this.#amount)
-    }
-    milk() {
-        this.#amount -= 10;
-
-        if (this.#amount < 0) {
-            this.#amount = 0
+    #NAMES = ["Epic Cow", "Nitwit Cow", "Bob", "James"]
+    constructor(name=''){
+        super()
+        if (name == ''){
+            this.#name = this.#NAMES[Math.floor(Math.random() * this.#NAMES.length)]
         }
+        else {
+            this.#name = name
+        }
+        this.#capacity = 15 + Math.floor(Math.random() * 26)
     }
     liveHour() {
-        this.#amount += 50
-
-        if (this.#amount > this.#capacity) {
-            this.#amount = this.#capacity;
-        }
+        const ProdMilk = parseFloat((0.7 + Math.random() * 1.3).toFixed(2))
+        this.#amount = Math.min(this.#capacity, parseFloat(this.#amount + ProdMilk).toFixed(2))
+    }
+    milk() {
+        const CowsMilk = this.#amount
+        this.#amount = 0
+        return CowsMilk
+    }
+    print() {
+        console.log("Name: " + this.#name + " | Capacity: " + this.#capacity + " | Amount: " + this.#amount)
     }
 }
 
