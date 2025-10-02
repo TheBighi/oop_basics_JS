@@ -1,14 +1,14 @@
 
 
 class Cow {
-    #capacity = 2000
+    #capacity = 200
     #amount = 0
     #name = ""
     
     constructor(name) {
         this.#name = name
-        this.#amount = 0
-        this.#capacity = 2000
+        this.#amount = 20
+        this.#capacity = 200
     }
     GetCapacity() {
         return Math.ceil(this.#capacity * 10) / 10
