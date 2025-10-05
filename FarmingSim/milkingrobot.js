@@ -1,7 +1,7 @@
 class MilkingRobot{
     #bulktank = undefined
-    constructor(){
-        this.#bulktank = undefined
+    constructor(bulktank = undefined){
+        this.#bulktank = bulktank
     }
     getBulkTank(){
         this.#bulktank.print()
@@ -15,4 +15,4 @@ class MilkingRobot{
     }
 }
 
-module.exports = MilkingRobot;
+module.exports = MilkingRobot;  
