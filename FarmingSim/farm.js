@@ -1,34 +1,37 @@
-const BulkTank  = require('./bulktank.js');
-const Cow  = require('./cow.js');
-const MilkingRobot  = require('./milkingrobot.js');
-const Barn = require('./barn.js')
+class Farm{
+    #name = undefined
+    #Barn = undefined
+    #cows = []
 
-// Lauda loomine
-const barn = new Barn(new BulkTank());
-console.log("Barn: " + barn.print());
-
-// Paigalda robot
-const robot = new MilkingRobot();
-barn.installMilkingRobot(robot);
-
-// Üks lehm
-const ammu = new Cow();
-ammu.liveHour();
-ammu.liveHour();
-
-// Lüpse üksik lehm
-barn.takeCareOf(ammu);
-console.log("Barn: " + barn.print());
-
-// Loo nimekiri ja toida (elu tunnid) ning lüpsa kõik
-const cowList = [ammu, new Cow()];
-for (const cow of cowList) {
-  cow.liveHour();
-  cow.liveHour();
+    constructor(name, Barn){
+        this.#name = name
+        this.#Barn = Barn
+    }
+    getOwner(){
+        return this.#name
+    }
+    addCow(cow){
+        this.#cows.push(cow)
+    }
+    liveHour(){
+        for (const cow of this.#cows){
+            cow.liveHour()
+        }
+    }
+    installMilkingRobot(milkingrobot){
+        this.#Barn.installMilkingRobot(milkingrobot)
+    }
+    manageCows(){
+        this.#Barn.takeCareOfAll(this.#cows)
+    }
+    print(){
+        return `
+        Farm owner: ${this.#name}
+        Barn bulk tank: ${this.#Barn.print()}
+        Animals:
+        ${this.#cows.map(cow => `    ${cow.print()}`).join('\n')}
+        `
+    }
 }
 
-// lüpsa kõik
-barn.takeCareOfAll(cowList);
-// või: barn.takeCareOfCollection(cowList);
-
-console.log("Barn: " + barn.print());
+module.exports = Farm;

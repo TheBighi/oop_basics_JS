@@ -25,7 +25,7 @@ class Cow extends Milkable{
         return CowsMilk
     }
     print() {
-        console.log("Name: " + this.#name + " | Capacity: " + this.#capacity + " | Amount: " + this.#amount)
+        return("Name: " + this.#name + " | Capacity: " + this.#capacity + " | Amount: " + this.#amount)
     }
 }
 

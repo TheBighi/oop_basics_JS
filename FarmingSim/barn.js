@@ -18,10 +18,11 @@ class Barn{
         }
         this.#milkingrobot.milk(cow)
     }
-    takeCareOfAll(cows){
+    takeCareOfAll(inp){
         if (!this.#milkingrobot){
             throw new Error("No milking robot");
         }
+        const cows = Array.isArray(inp) ? inp : [inp]
         for (const cow of cows) {
             this.#milkingrobot.milk(cow)
         }
