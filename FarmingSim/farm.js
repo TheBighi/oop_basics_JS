@@ -1,24 +1,34 @@
 const BulkTank  = require('./bulktank.js');
 const Cow  = require('./cow.js');
 const MilkingRobot  = require('./milkingrobot.js');
+const Barn = require('./barn.js')
 
-const bulktank1 = new BulkTank()
-const cow1 = new Cow()
-const milkingrobot1 = new MilkingRobot()
-milkingrobot1.setBulkTank(bulktank1)
+// Lauda loomine
+const barn = new Barn(new BulkTank());
+console.log("Barn: " + barn.print());
 
-bulktank1.print();
+// Paigalda robot
+const robot = new MilkingRobot();
+barn.installMilkingRobot(robot);
 
-for (let i = 0; i < 2; i++) {
-  cow1.print();
-  console.log("Living..");
-  for (let j = 0; j < 5; j++) {
-    cow1.liveHour();
-  }
-  cow1.print();
+// Üks lehm
+const ammu = new Cow();
+ammu.liveHour();
+ammu.liveHour();
 
-  console.log("Milking...");
-  milkingrobot1.milk(cow1);
-  bulktank1.print();
-  console.log("");
+// Lüpse üksik lehm
+barn.takeCareOf(ammu);
+console.log("Barn: " + barn.print());
+
+// Loo nimekiri ja toida (elu tunnid) ning lüpsa kõik
+const cowList = [ammu, new Cow()];
+for (const cow of cowList) {
+  cow.liveHour();
+  cow.liveHour();
 }
+
+// lüpsa kõik
+barn.takeCareOfAll(cowList);
+// või: barn.takeCareOfCollection(cowList);
+
+console.log("Barn: " + barn.print());
