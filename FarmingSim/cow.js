@@ -25,7 +25,7 @@ class Cow extends Milkable{
         return CowsMilk
     }
     print() {
-        return("Name: " + this.#name + " | Capacity: " + this.#capacity + " | Amount: " + this.#amount)
+        return `${this.#name} ${Math.ceil(this.#amount * 10) / 10}/${this.#capacity}`;
     }
 }
 

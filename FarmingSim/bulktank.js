@@ -6,10 +6,10 @@ class BulkTank {
         this.#capacity = capacity
         this.#volume = 0
     }
-    GetCapacity() {
+    getCapacity() {
         return this.#capacity
     }
-    GetVolume() {
+    getVolume() {
         return Math.ceil(this.#volume * 10) / 10
     }
     print(){
@@ -20,7 +20,7 @@ class BulkTank {
     }
     addToTank(amount) {
         if (this.#volume + amount > this.#capacity) {
-            this.#volume = 0
+            this.#volume = this.#capacity
         }
         else{
             this.#volume += amount;
@@ -28,7 +28,7 @@ class BulkTank {
     }
     getFromTank(amount) {
         if (this.#volume - amount < 0) {
-            this.#volume = this.#capacity
+            this.#volume = 0
         }
         else{
             this.#volume -= amount

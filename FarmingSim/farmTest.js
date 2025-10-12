@@ -5,38 +5,38 @@ const Barn = require('./barn.js')
 const Farm = require('./farm.js')
 
 // 1) Tühi kari
-let farm = new Farm("Esko", new Barn(new BulkTank()));
-console.log(farm.print());
+let farm1 = new Farm("Esko", new Barn(new BulkTank()));
+console.log(farm1.print());
 console.log("");
-console.log(farm.getOwner() + " is a tough guy!");
+console.log(farm1.getOwner() + " is a tough guy!");
 console.log("");
 
 // 2) Kolm lehma, kohe prindi
-farm = new Farm("Esko", new Barn(new BulkTank()));
-farm.addCow(new Cow());
-farm.addCow(new Cow());
-farm.addCow(new Cow());
-console.log(farm.print());
+farm1 = new Farm("Esko", new Barn(new BulkTank()));
+farm1.addCow(new Cow());
+farm1.addCow(new Cow());
+farm1.addCow(new Cow());
+console.log(farm1.print());
 console.log("");
 
 // 3) Elagu tunnike paar ja siis prindi
-farm = new Farm("Esko", new Barn(new BulkTank()));
-farm.addCow(new Cow());
-farm.addCow(new Cow());
-farm.addCow(new Cow());
-farm.liveHour();
-farm.liveHour();
-console.log(farm.print());
+farm1 = new Farm("Esko", new Barn(new BulkTank()));
+farm1.addCow(new Cow());
+farm1.addCow(new Cow());
+farm1.addCow(new Cow());
+farm1.liveHour();
+farm1.liveHour();
+console.log(farm1.print());
 console.log("");
 
 // 4) Paigalda robot, lase lehmadel elada, siis lüpsi (manageCows)
-farm = new Farm("Esko", new Barn(new BulkTank()));
+farm1 = new Farm("Esko", new Barn(new BulkTank()));
 const robot = new MilkingRobot();
-farm.installMilkingRobot(robot);
-farm.addCow(new Cow());
-farm.addCow(new Cow());
-farm.addCow(new Cow());
-farm.liveHour();
-farm.liveHour();
-farm.manageCows();
-console.log(farm.print());
+farm1.installMilkingRobot(robot);
+farm1.addCow(new Cow());
+farm1.addCow(new Cow());
+farm1.addCow(new Cow());
+farm1.liveHour();
+farm1.liveHour();
+farm1.manageCows();
+console.log(farm1.print());

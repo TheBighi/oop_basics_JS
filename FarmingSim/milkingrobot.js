@@ -4,14 +4,17 @@ class MilkingRobot{
         this.#bulktank = bulktank
     }
     getBulkTank(){
-        this.#bulktank.print()
+        return this.#bulktank.print()
     }
     setBulkTank(bulktank){
         this.#bulktank = bulktank
     }
     milk(cow){
-        const x = cow.milk()
+        if (!this.#bulktank) throw new Error("The MilkingRobot hasn't been installed");
+        else{
+            const x = cow.milk()
         this.#bulktank.addToTank(x)
+        }
     }
 }
 
