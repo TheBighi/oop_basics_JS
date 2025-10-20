@@ -6,7 +6,7 @@ class Barn{
         this.#milkingrobot = milkingrobot
     }
     getBulkTank(){
-        this.#bulktank.print()
+        return this.#bulktank.print()
     }
     installMilkingRobot(milkingrobot){
         this.#milkingrobot = milkingrobot
